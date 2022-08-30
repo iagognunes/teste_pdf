@@ -150,5 +150,16 @@ Future<Uint8List> _generatePdf(PdfPageFormat format) async {
     ),
   );
 
+  pdf.addPage(pw.MultiPage(build: (context) {
+    return [
+      pw.Text('Hello'),
+      pw.Wrap(children: [
+        pw.Text('One'),
+        pw.Text('Two'),
+        pw.Text('Three'),
+      ]),
+    ];
+  }));
+
   return pdf.save();
 }
